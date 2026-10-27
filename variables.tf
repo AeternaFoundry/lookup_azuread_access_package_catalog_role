@@ -4,11 +4,16 @@ Map of access_package_catalog_role_lookup, attributes below
 Optional:
     - display_name
     - object_id
+    - timeouts (block):
+        - read (optional)
 EOT
 
   type = map(object({
     display_name = optional(string)
     object_id    = optional(string)
+    timeouts = optional(object({
+      read = optional(string)
+    }))
   }))
   validation {
     condition = alltrue([
